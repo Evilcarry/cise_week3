@@ -4,10 +4,10 @@ const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
 
-// routes
-const books = require('./routes/api/books');
-
 const app = express();
+
+// routes
+const books = require('./routes/api/books.js')(app);
 
 // Connect Database
 connectDB();
