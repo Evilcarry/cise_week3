@@ -11,6 +11,8 @@ app.use(cors());
 //models
 require("./models/book");
 
+const server = http.createServer(process.env.PORT || 3000);
+
 mongoose
     .connect(
         process.env.MONGODB_CONNECTION_STRING,
