@@ -34,8 +34,8 @@ app.get("*", function(req, res) {
 //app.use('/api/books', books);
 
 
-//if (process.env.NODE_ENV === 'production'){
-//    app.use(express.static('./frontend/build'))
-//}
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static('./frontend/build'))
+}
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

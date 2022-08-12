@@ -4,7 +4,8 @@
   "description": "week 3 practice",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start":"set NODE_ENV=development&& nodemon index.js",
+    "start-prod":"set NODE_ENV=production&& nodemon index.js",
     "build": "cd frontend && npm run build",
     "install-client": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
