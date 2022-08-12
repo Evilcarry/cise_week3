@@ -15,10 +15,10 @@ mongoose
     .connect(
         process.env.MONGODB_CONNECTION_STRING,
         {
-            userNewUrlParser: true,
-            useUnifiedTopology: true,
+                userNewUrlParser: true,
+                useUnifiedTopology: true,
         }
-        )
+    )
     .then(() => console.log("MongoDB has been connected"))
     .catch((err) => console.log(err));
 
