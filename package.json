@@ -5,7 +5,7 @@
     "node": "12.11.1",
     "npm":  "6.14.8"
   },
-  "description": "week 3 practice",
+  "description": "week 3 practice , a lot of practice",
   "main": "index.js",
   "scripts": {
     "build": "cd frontend && npm run build",
