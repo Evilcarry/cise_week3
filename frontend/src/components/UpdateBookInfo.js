@@ -53,7 +53,7 @@ class UpdateBookInfo extends Component {
     };
 
     axios
-      .put('https://ciseweek3benxd.herokuapp.com/api/books/api/books/api/books/api/books/api/books/api/books/api/books/'+this.props.match.params.id, data)
+      .put('https://ciseweek3benxd.herokuapp.com/api/books'+this.props.match.params.id, data)
       .then(res => {
         this.props.history.push('/show-book/'+this.props.match.params.id);
       })

@@ -28,7 +28,7 @@ class showBookDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('https://ciseweek3benxd.herokuapp.com/api/books/api/books/'+id)
+      .delete('https://ciseweek3benxd.herokuapp.com/api/books/'+id)
       .then(res => {
         this.props.history.push("/");
       })

@@ -13,7 +13,7 @@ const books = require("./routes/api/books");
 
 mongoose
     .connect(
-        process.env.MONGODB_CONNECTION_STRING,
+        process.env.mongoURI,
         {
                 userNewUrlParser: true,
                 useUnifiedTopology: true,
