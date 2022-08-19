@@ -37,7 +37,7 @@ const port = process.env.PORT || 8082;
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, "./frontend/build")));
     app.get("*", (req, res) => {
-        response.sendFile(path.join(__dirname, "./frontend/build", 'index.html'));
+        response.sendFile(path.join(__dirname, "./frontend/build", 'build' ,'index.html'));
     });
 }else{
     app.get('/', (req, res) => {res.send("Api running")});
