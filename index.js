@@ -24,8 +24,8 @@ mongoose
 
 
 // Init Middleware
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true}));
+app.use(express.json({extended: false}));
 
 // routes
 //require('./routes/api/books.js')(app);
