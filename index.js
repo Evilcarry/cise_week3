@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({path: './.env'});
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -32,12 +32,11 @@ app.use(express.json({extended: false}));
 app.use('./routes/api/books.js', books);
 
 //test
-const port = process.env.PORT || 8082;
-
+const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, "./frontend/build")));
     app.get("*", (req, res) => {
-        response.sendFile(path.join(__dirname, "./frontend/build", 'build' ,'index.html'));
+        response.sendFile(path.join(__dirname, "frontend", 'build' ,'index.html'));
     });
 }else{
     app.get('/', (req, res) => {res.send("Api running")});
