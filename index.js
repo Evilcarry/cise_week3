@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({origin: true, credentials:true}));
 
 //models
-const books = require("./models/book");
+const books = require("./routes/api/books");
 
 mongoose
     .connect(
