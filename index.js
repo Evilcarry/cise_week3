@@ -1,17 +1,15 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-require("dotenv").config();
-
+const path = require("path");
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+app.use(cors({origin: true, credentials:true}));
 
 //models
-require("./models/book");
-
-const server = http.createServer(process.env.PORT || 3000);
+const books = require("./models/book");
 
 mongoose
     .connect(
@@ -30,19 +28,19 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 // routes
-require('./routes/api/books.js')(app);
+//require('./routes/api/books.js')(app);
+app.use('./routes/api/books.js', books);
 
 //test
 const port = process.env.PORT || 8082;
 
-const path = require("path");
-
-const { response } = require('express');
-
-app.use(express.static(path.resolve(__dirname, "./frontend/build")));
-
-app.get("*", function(req, res) {
-    response.sendFile(path.resolve(__dirname, "./frontend/build", index.html));
-})
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, "./frontend/build")));
+    app.get("*", (req, res) => {
+        response.sendFile(path.join(__dirname, "./frontend/build", 'build', 'index.html'));
+    });
+}else{
+    app.get('/', (req, res) => {res.send("Api running")});
+}
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
